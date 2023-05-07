@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 
 async function startDB() {
-  await mongoose.connect(
-    "mongodb+srv://IZT:sirius2023@izt.s5jrxet.mongodb.net/Curso?retryWrites=true&w=majority"
-  );
+  await mongoose.connect(process.env.MONGO_URI);
 
   console.log("Banco de dados inicializado");
 }
