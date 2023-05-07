@@ -2,14 +2,6 @@ const { default: mongoose } = require("mongoose");
 const { z } = require("zod");
 const { validateRequest } = require("zod-express-middleware");
 
-// {
-//     "nome": "João",
-//     "email": "hotmail.com",
-//     "senha": "pamon",
-//     "cargo": "Dev líder",
-//     "status": "Sirius a maior!"
-// }
-
 const create = validateRequest({
   body: z.object({
     nome: z.string({ required_error: "O nome é obrigatório" }),
