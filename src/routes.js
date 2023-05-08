@@ -1,8 +1,10 @@
 const { Router } = require("express");
 const UsuarioController = require("./Controllers/UsuarioController");
 const SessoesController = require("./Controllers/SessoesController");
+const AuthController = require("./Controllers/AuthController");
 const UsuarioValidator = require("./Validators/UsuarioValidator");
 const SessoesValidator = require("./Validators/SessoesValidator");
+const AuthValidator = require("./Validators/AuthValidator");
 
 const rotas = Router();
 
@@ -24,5 +26,8 @@ rotas.delete(
   SessoesValidator.destroy,
   SessoesController.delete
 );
+
+//AUTH
+rotas.post("/login", AuthValidator.login, AuthController.login);
 
 module.exports = rotas;
